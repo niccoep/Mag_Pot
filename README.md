@@ -1,24 +1,24 @@
-# Linearizing a magnetic encoder
-## Problem overview
-The inputs to the system are given as a set of points along a elipse (shown in red).
-
-![Example 1](example1.jpeg)
-
-**Important:** The points in red are the only data given. The elipse is initially unknown.
-
-Given some vector `v1`. If `v1` moves along the elipse between `max` and `min` at a constant rate, the dθ/dt will not be constant. I want it to be constant.
+# Mag Pot
+This project is was started in the hopes to make it easy and affordable to completley remove all potentiometer wear/oddities in Gamecube Controllers.
 
 
-The solution I came up with is to apply a linear transformation that normalizes the X and Y axis resilting in a unit circle.
+# What is the Mag Pot?
+The Mag Pot is a drop in replacement for the resistive potentioimeter found in Gamecube Controllers. 
 
-To find this transformation I need to aproximate the elipse based off of the data points inorder to find the stretch in each axis. I think a good way to achieve this is to solve it like a least squares system to find the elipse with the least error. (The input is from physical hardware and will have some noise in the input so points wont lie exactly on an elipse).
+# Why make this?
+I wanted to make it easier (and much cheeper) for anyone to turn **ANY** Gamecube Controller into one with nearly percect stick inputs that will never wear.
 
-My question boils down to:
-- How do I set up the system?
-- Is this possible to be solved with least squared?
-If I can find the elipse that provides the least squared error to the inputs
+# How dos it work?
+The Mag Pot uses small magnetic encoders to read stick box angles. The angles are read by a micro controller that will output a corisponding analog voltage to be read by the GCC.
 
-# Aditional Information
-- The set of input point is not necesairly center on one of the axis. I just drew it that way for the example. 
-- The points hav a constraint. They will not span the whole space and will be constrained to about ~70 degreese of a section of an elipse. 
-- The problem needs to be solvable regardless of what part of the elips the group of points lies on.
+While the above explaination is simple, the process involves a lot of linear algera and low level programming. I will be making an in depth explaination of the maths and programming eventually but I'm currently more focused on getting a final product.
+
+# Features
+1. Similar to the highly sought after [PhobGCC](https://github.com/Phobos132/PhobGCC), the notch positions (including custom notches such as firefox notches) will be able to be calibrated allowing for high input accuracy and repeatability. I plan to have a computer/phone interface to make calibration easy and doable without a smashscope (I'm also working on making a mini usb/bluetooth smashscope). 
+
+2. The stick snapback will be highly tuneable in the software interface. This will essentially be able to do the same this as a snapback mod but about 10x better. For anyone wanting to know, I'm representing the stick inputs as a second order system that can be convienently put into a statespace equation.
+
+3. Low cost: I'm thinking of pricing this module in the range of $35(not decided yet) making it significantly less expensive than a full custom pcb controller. I think anyone reading this page knows how absudly expensive controllers can get for the sake of precise stick inputs or controllers with favorable pode. 
+
+# Current Progress
+I've been working on this for a while and I am almost at the stage of testing manufatcured PCBs. At the rate it's going I should have them for sale before October this year (10/22). Follow my [Twitter](https://twitter.com/bread_mods) for progress updates.
