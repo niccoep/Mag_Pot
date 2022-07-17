@@ -1,3 +1,6 @@
+## This is a breakdown of how the notch calibrations works. If u don't know how to code or don't care for the code just look at the images and read the little blurbs. It should give you an overview of the process.
+
+
 ```python
 import numpy as np
 from matplotlib import pyplot as plt
@@ -48,7 +51,7 @@ show_input_space(C)
 
 
     
-![png](output_3_0.png)
+![png](output_4_0.png)
     
 
 
@@ -71,7 +74,7 @@ show_input_space(C_shifted)
 
 
     
-![png](output_6_0.png)
+![png](output_7_0.png)
     
 
 
@@ -114,7 +117,7 @@ show_input_space(C_shifted)
 
 
     
-![png](output_10_0.png)
+![png](output_11_0.png)
     
 
 
